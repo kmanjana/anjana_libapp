@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <link rel="stylesheet" href="css/newbook.css">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>ADD NEW AUTHOR</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="images/logo1.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+    <style>
+
+        body {
+        display: block;
+        position: relative;
+        backdrop-filter: brightness(50%);
+        }
+        body::after {
+          background-image: url(/images/backg3.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          content: "";
+          opacity: 0.6;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          z-index: -1; 
+        }
+
+.bg-light{
+  background-color: #290502!important;
+}
+.items{
+  margin-left: 20px;
+  color: #ccccdd;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: .08em;
+  font-family: 'Oswald',arial narrow,sans-serif;
+  
+}
+.navbar-brand{
+  font-size: 14px;
+  margin-left: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 175px;
+  letter-spacing: .08em;
+  font-family: 'Oswald',arial narrow,sans-serif;
+}
+.items:hover{
+  color: #ccccdd;
+}
+.navbar-toggler{
+  background-color: rgba(255, 255, 255, 0.164);
+
+}
+.form-control{
+     border: none;
+     border-bottom:2px solid rgb(212, 182, 137);
+     
+      }
+.choices__inner{
+  background-color:rgba(0,0,0,0) !important;
+  color: blanchedalmond;
+  border: none;
+  border-bottom:2px solid rgb(212, 182, 137);
+}
+.choices__inner:hover{
+  background-color:rgba(0, 0, 0, 0.315) !important;
+  border: none;
+  border-bottom:2px solid rgb(211, 130, 64);
+}
+.choices__list--multiple .choices__item{
+  background-color:  rgb(211, 130, 64);
+  border: 1px solid brown;
+}
+
+.fa{
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.534);
+}
+</style>
+	<body>
+<header> 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/" class="navbar-brand" style="color:#ccccdd;">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" ></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <%for(i=0;i<nav.length;i++){%>
+        <li class="nav-item">
+          <a href="<%=nav[i].link%>" class="items" style="text-decoration: none;">
+            <%=nav[i].name%></a>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+  </nav>
+ </header>
+<form action="authors" onsubmit="return validate()">
+  <div class="container addbook" style="background-color: rgba(0, 0, 0, 0.884);">
+    <h3 class="addbook-heading">Add New Author</h3>
+    <div class="row addbook-form">
+      <div class="col-md-2">
+        <label>Name</label>
+      </div> 
+      <div class="col-md-10">
+        <div class="form-group">
+          <input type="text" id="name" class="form-control" onkeyup="namevald()" style=" color: blanchedalmond;" placeholder="Name of the author*"   required>
+          <span id="error1" style="color: red;font-size: 13px;"></span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label>Description</label>
+      </div>
+      <div class="col-md-10">
+        <div class="form-group">
+          <input type="text" id="desp" class="form-control" onkeyup="despvald()" style=" color: blanchedalmond;" placeholder="Description of Author* (eg: American author)"  required>
+          <span id="error2" style="color: red;font-size: 13px;"></span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label>Genres</label>
+      </div>
+      <div class="col-md-10">
+        <div class="row d-flex mt-100">
+          <div class="col-md-12 "> 
+            <select id="choices-multiple-remove-button" class="choices" onchange="valid()" placeholder="Click here to select the genres*" multiple style=" color: rgb(17, 15, 11);" required>
+                  <option value="Fiction" >Fiction</option>
+                  <option value="Mystery" >Mystery</option>
+                  <option value="Thriller">Thriller</option>
+                  <option value="Action">Action</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Supernatural">Supernatural</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Historical">Historical</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Tragedy">Tragedy</option>
+                  <option value="Crime">Crime</option>
+                  <option value="Biography">Biography</option>
+                  <option value="Young adult fiction">Young Adult Fiction</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Childrens Literature">Childrens Literature</option>
+                  <option value="Science">Science</option>
+              </select> 
+              <span id="error3" style="color: red;font-size: 13px;"></span>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-2">
+        <label>About</label>
+      </div>
+      <div class="col-md-10">
+         <textarea class="form-control z-depth-1" style=" color: blanchedalmond;" id="exampleFormControlTextarea6" rows="3" placeholder="About the author*" required></textarea>
+      </div>
+      
+        <input type="file" name="file" id="fileinput" onchange="showfiles()" accept="image/*" required>
+        <br><br><br>
+        <label for="fileinput" class="btnfile" style=" background: -webkit-linear-gradient(right,#080808, #8861268e);" title="Choose an image of the author">
+          Choose an image
+          <span id="error4" style="color: red;font-size: 13px; float: right;margin-top: 10%;"></span>
+        </label> &nbsp;&nbsp;
+        <img id="preview" src="/images/bookplaceholder.jpg">
+        <span id="delete"></span>
+        <input type="submit" class="btnnewbook" onclick="valid(),imgchange()" value="Submit">
+      </div>
+   
+
+                  
+ 
+  </div>
+</div>
+</div>  
+</form>
+<!-- ./form-->
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+removeItemButton: true,
+maxItemCount:13,
+searchResultLimit:13,
+renderChoiceLimit:13
+});
+
+
+});
+
+  function showfiles(){
+    let inputfield = document.getElementById("fileinput");
+    let file = inputfield.files;
+
+    let filereader = new FileReader;
+    filereader.onload = function(event){
+      let imageurl = filereader.result;
+      $("#preview").attr("src" , `${imageurl}`)
+      $("#preview").css("opacity","10");
+      error4.innerHTML="";
+      $("#delete").html("<p class='deleted' onclick='todelete()' title='Click here to delete the image'><i class='fa fa-window-close' ></i></p>"); 
+
+    }
+    filereader.readAsDataURL(file[0]);
+  }
+
+  //name validation
+let fname = document.getElementById("name");
+let error1 = document.getElementById("error1") ;
+
+let names =/^([A-Za-z\. ]+)$/;
+
+function namevald(){
+  let fname = document.getElementById("name");
+  let error1 = document.getElementById("error1") ;
+
+    if((names.test(fname.value))!=1){
+      error1.innerHTML="Please enter valid name";
+    }
+    else{
+      error1.innerHTML="";
+    }
+}
+
+function despvald(){
+  let fname = document.getElementById("desp");
+  let error2 = document.getElementById("error2") ;
+
+  if((names.test(fname.value))!=1){
+      error2.innerHTML="Can only be alphabets";
+    }
+    else{
+      error2.innerHTML="";
+    }
+
+}
+function valid(){
+  let error3 = document.getElementById("error3") ;
+  
+  if($( ".choices option:selected" ).text() == ""){
+     error3.innerHTML="Please choose the genres";
+    }else{
+    error3.innerHTML="";
+  }
+}
+
+function imgchange(){
+  let error4 = document.getElementById("error4") ;
+  if($("#preview").attr("src") == "/images/bookplaceholder.jpg"){
+    error4.innerHTML="Please choose the cover image";
+  }
+}
+
+function todelete(){
+  $("#preview").attr("src","/images/bookplaceholder.jpg");
+  $("#delete").html(""); 
+  $("#preview").css("opacity","0.6");
+}
+</script>
+	</body>
+</html>
