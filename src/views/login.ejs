@@ -8,75 +8,44 @@
 		<title>LOGIN</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/jpg" href="images/logo1.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="/images/icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
-  
+
     <link href="css/styles.css" rel="stylesheet">
 	</head>
-    <style>
- body {
-        display: block;
-        position: relative;
-        backdrop-filter: brightness(20%);
-        }
-        body::after {
-          background-image: url(images/signup7.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          content: "";
-          opacity: 0.4;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          position: absolute;
-          z-index: -1; 
-        }
-        .bg-light{
-  background-color: #290502!important;
-}
-.items{
-  margin-left: 20px;
-  color: #ccccdd;
-  text-transform: uppercase; 
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: .08em;
-  font-family: 'Oswald',arial narrow,sans-serif;
-  
-}
-.navbar-brand{
-  font-size: 14px;
-  margin-left: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-left: 175px;
-  letter-spacing: .08em;
-  font-family: 'Oswald',arial narrow,sans-serif;
-}
-.items:hover{
-  color: #ccccdd;
-}
-.navbar-toggler{
-  background-color: rgba(255, 255, 255, 0.164);
+<style>
+  body{
+    background-image: url(images/signup7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+  body::after {
+    display: block;
+    position: relative;
+    backdrop-filter: brightness(20%);
+    content: "";
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    }
 
+  .register{
+  width: 40%;
 }
-.register{
-  /* background-image: url(images/signup1.jpg); */
-  background-color:#ad6949cb; 
-  background-position: left;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 700px;
-  height: auto;
-  
-  /* background-position:center 10%; */
-}
+  @media only screen and (max-width: 900px) {
+    .register {
+      width: 90%;
+    }
+  }
 input{
   text-indent: 20px;
 }
@@ -87,18 +56,15 @@ input{
     height: 45px;
    
   }
-.fa-form {
-  position: absolute;
-  top: 12px;
-  left: 20px;
-  /* color:  rgba(250, 249, 245, 0.74); */
-  color: rgb(82, 80, 80);
-  font-size: 22px;
-  z-index: 9999;
-  }
-.fa {
+  form i.fa {
+    position:absolute ;
+    top: 10px;
+    left: 20px;
+    color: rgb(82, 80, 80);
+    /* color: rgba(250, 249, 245, 0.596); */
     font-size: 22px;
-  }
+    /* z-index: 9999; */
+    }
 .btn-all{
     width: 65%;
     border: none;
@@ -157,25 +123,38 @@ input{
 
         </style>
 	<body>
-    <header> 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/" class="navbar-brand" style="color:#ccccdd;">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" ></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">Home</a>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
             <%for(i=0;i<nav.length;i++){%>
-            <li class="nav-item">
-              <a href="<%=nav[i].link%>" class="items" style="text-decoration: none;">
-                <%=nav[i].name%></a>
+            <li>
+              <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
             </li>
             <%}%>
           </ul>
-        </div>
-      </nav>
-     </header>
+          <ul class="nav navbar-right navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+              <ul class="dropdown-menu" style="padding:12px;">
+                <form class="form-inline">
+                  <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                </form>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
 <!-- form -->
 <form action="books" onsubmit="return validate()">

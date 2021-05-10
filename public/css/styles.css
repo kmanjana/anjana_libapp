@@ -9,7 +9,7 @@ body {
   padding-top:0;
   color:#646464;
   background-color:#efefef;
-}
+} 
 
 h1,h2,h3,.highlight,.navbar a,#masthead h4 {
   font-family:'Oswald',arial narrow,sans-serif;
@@ -34,7 +34,7 @@ footer {
   font-size: 55px;
   line-height: 1;
   color:#fefeff;
-  margin-top:50px;
+  margin-top:100px;
 }
 
 #masthead .well {

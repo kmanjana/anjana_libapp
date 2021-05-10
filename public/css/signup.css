@@ -1,14 +1,22 @@
 .register{
-    /* background: -webkit-linear-gradient(right, #8aec92, #794426); */
-    margin-top: 2%;
     padding: 3%;
     border-width: 1px;
     border:  1px solid #290502;
     border-radius: 70px;
     box-shadow: 10px 10px 10px rgb(24, 20, 31);
+
+        background-color:#ad6949cb; 
+        /* background-color:rgba(236, 183, 159, 0.39); */
+        background-position: left;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: auto; 
+        margin-top: 4%;
+        
+        /* background-position:center 10%; */
+ 
     
-    
-    }
+    } 
     .register-left img{
     margin-top: 15%;
     margin-bottom: 5%;

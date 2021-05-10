@@ -7,66 +7,36 @@
 		<title>ADD NEW BOOK</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/jpg" href="images/logo1.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="/images/icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
-  
+
     <link href="css/styles.css" rel="stylesheet">
 	</head>
-    <style>
+  <style>
+  body{
+    background-image: url(images/backg3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+  body::after {
+    display: block;
+    position: relative;
+    backdrop-filter: brightness(50%);
+    content: "";
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    }
 
-        body {
-        display: block;
-        position: relative;
-        backdrop-filter: brightness(50%);
-        }
-        body::after {
-          background-image: url(/images/backg3.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          content: "";
-          opacity: 0.6;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          position: absolute;
-          z-index: -1; 
-        }
-
-        .bg-light{
-  background-color: #290502!important;
-}
-.items{
-  margin-left: 20px;
-  color: #ccccdd;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: .08em;
-  font-family: 'Oswald',arial narrow,sans-serif;
-  
-}
-.navbar-brand{
-  font-size: 14px;
-  margin-left: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-left: 175px;
-  letter-spacing: .08em;
-  font-family: 'Oswald',arial narrow,sans-serif;
-}
-.items:hover{
-  color: #ccccdd;
-}
-.navbar-toggler{
-  background-color: rgba(255, 255, 255, 0.164);
-
-}
 .form-control{
      border: none;
      border-bottom:2px solid rgb(212, 182, 137);
@@ -94,28 +64,41 @@
 }
 </style>
 	<body>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="/" class="navbar-brand" style="color:#ccccdd;">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" ></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <%for(i=0;i<nav.length;i++){%>
-        <li class="nav-item">
-          <a href="<%=nav[i].link%>" class="items" style="text-decoration: none;">
-            <%=nav[i].name%></a>
-        </li>
-        <%}%>
-      </ul>
-    </div>
-  </nav>
-</header>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">Home</a>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <%for(i=0;i<nav.length;i++){%>
+            <li>
+              <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+            </li>
+            <%}%>
+          </ul>
+          <ul class="nav navbar-right navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+              <ul class="dropdown-menu" style="padding:12px;">
+                <form class="form-inline">
+                  <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                </form>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
 <!-- form --> 
-<form action="books" onsubmit="return validate()">
+<form action="/admin_book/add" method="POST" onsubmit="return validate()">
   <div class="container addbook" style="background-color: rgba(0, 0, 0, 0.884);">
     <h3 class="addbook-heading">Add New Book</h3>
     <div class="row addbook-form">
@@ -124,7 +107,7 @@
       </div>
       <div class="col-md-10">
         <div class="form-group">
-          <input type="text" id="title" class="form-control" style=" color: blanchedalmond;" placeholder="Title of the book*"   required>
+          <input type="text" id="title" class="form-control"  placeholder="Title of the book*"   name="title" style=" color: blanchedalmond;"required>
           <span id="error1" style="color: red;font-size: 13px;"></span>
         </div>
       </div>
@@ -133,7 +116,7 @@
       </div>
       <div class="col-md-10">
         <div class="form-group">
-          <input type="text" id="name" class="form-control"onkeyup="namevald()" style=" color: blanchedalmond;" placeholder="Name of the author*"  required>
+          <input type="text" id="name" class="form-control"onkeyup="namevald()" name="author" placeholder="Name of the author*"  style=" color: blanchedalmond;" required>
           <span id="error2" style="color: red;font-size: 13px;"></span>
         </div>
       </div>
@@ -143,7 +126,7 @@
       <div class="col-md-10">
         <div class="row d-flex mt-100">
           <div class="col-md-12 "> 
-            <select id="choices-multiple-remove-button" class="choices" onchange="valid()" placeholder="Click here to select the genres*" multiple style=" color: rgb(17, 15, 11);" required>
+            <select id="choices-multiple-remove-button" class="choices" onchange="valid()" name="genre" placeholder="Click here to select the genres*" multiple style=" color: rgb(17, 15, 11);" required>
                   <option value="Fiction" >Fiction</option>
                   <option value="Mystery" >Mystery</option>
                   <option value="Thriller">Thriller</option>
@@ -161,6 +144,7 @@
                   <option value="Drama">Drama</option>
                   <option value="Childrens Literature">Childrens Literature</option>
                   <option value="Science">Science</option>
+                  <option value="Novel">Novel</option>
               </select> 
               <span id="error3" style="color: red;font-size: 13px;"></span>
             </div>
@@ -170,27 +154,28 @@
         <label>Summary</label>
       </div>
       <div class="col-md-10">
-         <textarea class="form-control z-depth-1" style=" color: blanchedalmond;" id="exampleFormControlTextarea6" rows="3" placeholder="Summary of the plot*" required></textarea>
+         <textarea class="form-control z-depth-1"  name="summary" style=" color: blanchedalmond;" id="exampleFormControlTextarea6" rows="3" placeholder="Summary of the plot*" required></textarea>
       </div>
       
-        <input type="file" name="file" id="fileinput" onchange="showfiles()" accept="image/*" required>
+      <label>Choose a cover image </label> <br>
+      <input type="text" name="image" id="imageload" onkeyup="show()"  onpaste="paste()" class="form-control"  placeholder="Copy and paste the image address here*"  style=" color: blanchedalmond;" title="Choose a cover image for the book" required><br>
+        <!-- <input type="file" name="image" id="fileinput" onchange="showfiles()" accept="image/*" required>
         <br><br><br>
         <label for="fileinput" class="btnfile" style=" background: -webkit-linear-gradient(right,#080808, #8861268e);" title="Choose a cover image for the book">Choose a cover image
           <span id="error4" style="color: red;font-size: 13px; float: right;margin-top: 10%;"></span>
-        </label> &nbsp;&nbsp;
-        <img id="preview" src="/images/bookplaceholder.jpg">
-        <span id="delete"></span>
+        </label> &nbsp;&nbsp; -->
+        <!-- <span id="delete" ></span> -->
+        <img id="preview" src="/images/bookplaceholder.jpg" onclick="show()" style="cursor: pointer;">
+       
         <input type="submit" class="btnnewbook" onclick="valid(),imgchange()" value="Submit">
-      </div>
-   
-
-                  
+      </div>   
  
   </div>
 </div>
 </div>  
 </form>
 <!-- ./form-->
+
 
 <div class="container" id="footer">
   <div class="row">
@@ -238,29 +223,49 @@ $(document).ready(function(){
 
 var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
 removeItemButton: true,
-maxItemCount:13,
-searchResultLimit:13,
-renderChoiceLimit:13
+maxItemCount:18,
+searchResultLimit:18,
+renderChoiceLimit:18
 });
 
 
 });
 
-  function showfiles(){
-    let inputfield = document.getElementById("fileinput");
-    let file = inputfield.files;
-
-    let filereader = new FileReader;
-    filereader.onload = function(event){
-      let imageurl = filereader.result;
-      $("#preview").attr("src" , `${imageurl}`)
-      $("#preview").css("opacity","10");
-      error4.innerHTML="";
-      $("#delete").html("<p class='deleted' onclick='todelete()' title='Click here to delete the image'><i class='fa fa-window-close' ></i></p>"); 
-
-    }
-    filereader.readAsDataURL(file[0]);
+function paste(){
+    $("#imageload").attr("title","click here for image to load");
+    $("#preview").attr("title","click here for image to load");
   }
+
+function show(){
+  let inputfield = document.getElementById("imageload");
+  let imgurl = inputfield.value;
+  if((imgurl) == ""){
+    $("#preview").attr("src" , "/images/bookplaceholder.jpg");
+  }
+  else{
+    $("#preview").attr("src" , `${imgurl}`);
+    $("#preview").css("opacity","10");
+    // $("#delete").html("<p class='deleted' onclick='todelete()' title='Click here to delete the image'><i class='fa fa-window-close' ></i></p>"); 
+
+  }
+  
+}
+
+  // function showfiles(){
+  //   let inputfield = document.getElementById("fileinput");
+  //   let file = inputfield.files;
+
+  //   let filereader = new FileReader;
+  //   filereader.onload = function(event){
+  //     let imageurl = filereader.result;
+  //     $("#preview").attr("src" , `${imageurl}`)
+  //     $("#preview").css("opacity","10");
+  //     error4.innerHTML="";
+  //     $("#delete").html("<p class='deleted' onclick='todelete()' title='Click here to delete the image'><i class='fa fa-window-close' ></i></p>"); 
+
+  //   }
+  //   filereader.readAsDataURL(file[0]);
+  // }
 
   //name validation
 let fname = document.getElementById("name");
@@ -287,12 +292,12 @@ function valid(){
   }
 }
 
-function imgchange(){
-  let error4 = document.getElementById("error4") ;
-  if($("#preview").attr("src") == "/images/bookplaceholder.jpg"){
-    error4.innerHTML="Please choose the cover image";
-  }
-}
+// function imgchange(){
+//   let error4 = document.getElementById("error4") ;
+//   if($("#preview").attr("src") == "/images/bookplaceholder.jpg"){
+//     error4.innerHTML="Please choose the cover image";
+//   }
+// }
 
 function todelete(){
   $("#preview").attr("src","/images/bookplaceholder.jpg");

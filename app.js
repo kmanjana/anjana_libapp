@@ -5,19 +5,24 @@ const nav = [
     {link : '/authors' , name : 'Authors'},
     {link : '/signup' , name : 'Sign Up'},
     {link : '/login' , name : 'Login'},
-    {link : '/newbook' , name : 'Add New Book'},
-    {link : '/newauthor' , name : 'Add New Author'}
+    {link : '/admin_book' , name : 'Add New Book'},
+    {link : '/admin_author' , name : 'Add New Author'}
 ]
 
 const booksRouter = require('./src/routes/bookRoutes')(nav);
 const authorsRouter = require('./src/routes/authorRoutes')(nav);
-const port = process.env.PORT || 5000;
+const adminbookRouter = require('./src/routes/adminbookRoutes')(nav);
+const adminAuthorRouter = require('./src/routes/adminAuthorRoutes')(nav);
+const port = process.env.PORT || 3000;
 
+app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.set('view engine' , 'ejs');
 app.set('views' , __dirname+'/src/views');
 app.use('/books' , booksRouter);
+app.use('/admin_book',adminbookRouter);
 app.use('/authors' , authorsRouter);
+app.use('/admin_author',adminAuthorRouter);
 
 app.get('/' , function(req,res){
     res.render("index" , 
@@ -35,20 +40,6 @@ app.get('/signup' , function(req,res){
 
 app.get('/login' , function(req,res){
     res.render("login" , 
-        {nav,
-        title : 'Library'
-        });
-})
-
-app.get('/newbook' , function(req,res){
-    res.render("newbook" , 
-        {nav,
-        title : 'Library'
-        });
-})
-
-app.get('/newauthor' , function(req,res){
-    res.render("newauthor" , 
         {nav,
         title : 'Library'
         });
