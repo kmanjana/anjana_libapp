@@ -24,6 +24,21 @@ function router(nav){
         res.redirect('/books');
     });
 
+    adminbookRouter.post('/update/:id',function(req,res){
+        const id = req.params.id; 
+        var item = {
+            title : req.body.title,
+            author : req.body.author,
+            genre : req.body.genre,
+            summary : req.body.summary,
+            image : req.body.image
+        }
+        console.log(id);
+        var book = Bookdata(item);
+        book.save({_id:id});
+        res.redirect('/books');
+    });
+
     return adminbookRouter;
 }
 module.exports = router;

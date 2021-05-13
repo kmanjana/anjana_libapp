@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <link rel="stylesheet" href="css/newbook.css">
+    <link rel="stylesheet" href="/css/newbook.css">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>ADD NEW BOOK</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/jpg" href="/images/icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 	</head>
   <style>
   body{
@@ -98,16 +98,16 @@
     </header>
 
 <!-- form --> 
-<form action="/admin_book/add" method="POST" onsubmit="return validate()">
+<form action="/admin_book/update/<%=books._id%>" method="POST" onsubmit="return validate()">
   <div class="container addbook" style="background-color: rgba(0, 0, 0, 0.884);">
-    <h3 class="addbook-heading">Add New Book</h3>
+    <h3 class="addbook-heading">Edit Book Details</h3>
     <div class="row addbook-form">
       <div class="col-md-2">
         <label>Title</label>
       </div>
       <div class="col-md-10">
         <div class="form-group">
-          <input type="text" id="title" class="form-control"  placeholder="Title of the book*"   name="title" style=" color: blanchedalmond;"required>
+          <input type="text" id="title" class="form-control" value="<%=books.title%>" placeholder="Title of the book*"  name="title" style=" color: blanchedalmond;"required>
           <span id="error1" style="color: red;font-size: 13px;"></span>
         </div>
       </div>
@@ -116,7 +116,7 @@
       </div>
       <div class="col-md-10">
         <div class="form-group">
-          <input type="text" id="name" class="form-control"onkeyup="namevald()" name="author" placeholder="Name of the author*"  style=" color: blanchedalmond;" required>
+          <input type="text" id="name" class="form-control"onkeyup="namevald()" name="author" value="<%=books.author%>" placeholder="Name of the author*"  style=" color: blanchedalmond;" required>
           <span id="error2" style="color: red;font-size: 13px;"></span>
         </div>
       </div>
@@ -126,7 +126,10 @@
       <div class="col-md-10">
         <div class="row d-flex mt-100">
           <div class="col-md-12 "> 
-            <select id="choices-multiple-remove-button" class="choices" onchange="valid()" name="genre" placeholder="Click here to select the genres*" multiple style=" color: rgb(17, 15, 11);" required>
+            <select id="choices-multiple-remove-button" class="choices" onchange="valid()" name="genre"  placeholder="Click here to select the genres*" multiple style=" color: rgb(17, 15, 11);" required>
+              <%for(i=0;i<books.genre.length;i++){%>
+                  <option  selected><%=books.genre[i]%></option>
+               <%}%>
                   <option value="Fiction" >Fiction</option>
                   <option value="Mystery" >Mystery</option>
                   <option value="Thriller">Thriller</option>
@@ -154,18 +157,17 @@
         <label>Summary</label>
       </div>
       <div class="col-md-10">
-         <textarea class="form-control z-depth-1"  name="summary" style=" color: blanchedalmond;" id="exampleFormControlTextarea6" rows="3" placeholder="Summary of the plot*" required></textarea>
+         <textarea class="form-control z-depth-1"  name="summary" style=" color: blanchedalmond;" id="exampleFormControlTextarea6" rows="3" placeholder="Summary of the plot*" required><%=books.summary%></textarea>
       </div>
       
       <label>Choose a cover image </label> <br>
-      <input type="text" name="image" id="imageload" onkeyup="show()"  onpaste="paste()" class="form-control"  placeholder="Copy and paste the image address here*"  style=" color: blanchedalmond;" title="Choose a cover image for the book" required><br>
+      <input type="text" name="image" id="imageload" onkeyup="show()"  onpaste="paste()" value="<%=books.image%>" class="form-control"  placeholder="Copy and paste the image address here*"  style=" color: blanchedalmond;" title="Choose a cover image for the book" required><br>
         <!-- <input type="file" name="image" id="fileinput" onchange="showfiles()" accept="image/*" required>
         <br><br><br>
         <label for="fileinput" class="btnfile" style=" background: -webkit-linear-gradient(right,#080808, #8861268e);" title="Choose a cover image for the book">Choose a cover image
           <span id="error4" style="color: red;font-size: 13px; float: right;margin-top: 10%;"></span>
         </label> &nbsp;&nbsp; -->
         <!-- <span id="delete" ></span> -->
-        
         <img id="preview" src="/images/bookplaceholder.jpg" onclick="show()" style="cursor: pointer;">
        
         <input type="submit" class="btnnewbook" onclick="valid(),imgchange()" value="Submit">

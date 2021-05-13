@@ -61,19 +61,21 @@
         }
         form .text{
           font-size: 20px;
-          font-weight: 900;
+          font-weight: 700;
           display: none;
           margin-bottom: -10px;
         }
         form .text.weak{
           /* color: #ff4757; */
-          color: #a32e38;
+          /* color: #a32e38; */
+          color: rgb(114, 105, 105);
+          color: rgb(230, 171, 171);
         }
         form .text.medium{
           color: orange;
         }
         form .text.strong{
-          color: #23ad5c;
+          color: #6cca95;
         }
         .eye{
   position: absolute;
@@ -340,6 +342,7 @@ function pwdcheck(){
 
     indicator.style.display = "block";
     indicator.style.display = "flex";
+    
 
     if(pwd.value.length <= 3 && (pwd.value.match(regExpWeak) || pwd.value.match(regExpMedium) || pwd.value.match(regExpStrong)))no=1;
     if(pwd.value.length >= 6 && ((pwd.value.match(regExpWeak) && pwd.value.match(regExpMedium)) || (pwd.value.match(regExpMedium) && pwd.value.match(regExpStrong)) || (pwd.value.match(regExpWeak) && pwd.value.match(regExpStrong))))no=2;
@@ -366,7 +369,7 @@ function pwdcheck(){
     if(no==3){
       medium.style.width = "66.6%";
       strong.style.width = "100%";
-      strong.style.backgroundColor = "#23ad5c";
+      strong.style.backgroundColor = "#6cca95";
       text.textContent = "Strong";
       text.classList.add("strong");
     }else{
