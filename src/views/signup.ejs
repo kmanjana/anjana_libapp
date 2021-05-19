@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="/css/signup.css">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>SIGN UP</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	  <link href="css/bootstrap.min.css" rel="stylesheet">
+	  <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/jpg" href="/images/icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,32 +15,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 	</head>
   <style>
   body{
-    background-image: url(images/signup7.jpg);
+    background-image: url(images/backg3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    }
-  body::after {
-    display: block;
-    position: relative;
-    backdrop-filter: brightness(20%);
-    content: "";
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-    }
-       
-
+    }  
   .register{
   width: 50%;
-}
+  
+  }
   @media only screen and (max-width: 900px) {
     .register {
       width: 90%;
@@ -55,135 +41,111 @@
     font-size: 18px;
     /* z-index: 9999; */
     }
-        
-         form .indicator{
-          display: none;
-        }
-        form .text{
-          font-size: 20px;
-          font-weight: 700;
-          display: none;
-          margin-bottom: -10px;
-        }
-        form .text.weak{
-          /* color: #ff4757; */
-          /* color: #a32e38; */
-          color: rgb(114, 105, 105);
-          color: rgb(230, 171, 171);
-        }
-        form .text.medium{
-          color: orange;
-        }
-        form .text.strong{
-          color: #6cca95;
-        }
-        .eye{
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  color: rgb(82, 80, 80);
-  transform: translateY(-50%);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  display: none;
-  user-select: none;
-}
-.form-control{
-    border: 1px solid #573b39;
-    /* background-color: rgba(15, 14, 14, 0.637); */
-    background-color: rgba(255, 255, 255, 0.589); 
-    color: rgb(14, 12, 12);
-}
-.input{
-    height: 40px;
-   
+  form .indicator{
+    display: none;
+  }
+  form .text{
+    font-size: 20px;
+    font-weight: 700;
+    display: none;
+    margin-bottom: -10px;
+  }
+  form .text.weak{
+    color: rgb(114, 105, 105);
+    color: rgb(230, 171, 171);
+  }
+  form .text.medium{
+    color: orange;
+  }
+  form .text.strong{
+    color: #6cca95;
+  }
+  .eye{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: rgb(82, 80, 80);
+    transform: translateY(-50%);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+  }
+  .form-control{
+      border: 1px solid #573b39;
+      background-color: rgba(255, 255, 255, 0.788); 
+      color: rgb(14, 12, 12);
+  }
+  .input{
+      height: 40px;
   }
   .error{
-    color: #771b1b;
-    font-size: 13px;
-    font-weight: 600;
+      color: #d33737;
+      font-size: 13px;
+      font-weight: 600;
+  }
+  .alert{
+    background-color: rgba(216, 180, 180, 0.705);
+    color: rgb(128, 38, 38);
+    text-align: center;
+  }
+  .alert-danger{
+    margin-top: 30px;
   }
   </style>
 	<body>
-    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/" class="navbar-brand">Home</a>
-        </div>
-        <nav class="collapse navbar-collapse" role="navigation">
-          <ul class="nav navbar-nav">
-            <%for(i=0;i<nav.length;i++){%>
-            <li>
-              <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-            </li>
-            <%}%>
-          </ul>
-          <ul class="nav navbar-right navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-              <ul class="dropdown-menu" style="padding:12px;">
-                <form class="form-inline">
-                  <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-                </form>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    
 <!-- form -->
-<form action="login" onsubmit="return validate()">
+<form action="/signup" method="POST" onsubmit="return validate()">
   <div class="container register" >
-     
+    <%if(successsignup!=''){%>
+      <div class="alert alert-danger">
+        <strong><%=successsignup%></strong>
+      </div>
+      <%}%> 
           <div class="register-right">
                     <h3 class="register-heading">Sign Up</h3><br>
                     <div class="row register-form">
                       <div class="col-md-6">
                         <div class="form-group">
                             <i class="fa fa-user" ></i>
-                                <input type="text" id="fname" class="form-control input"  placeholder="First Name *" onkeyup="fnamevald()" title="Can only contain alpahets "  required>
+                                <input type="text" name="fname" id="fname" class="form-control input"  placeholder="First Name *" onkeyup="fnamevald()" title="Can only contain alpahets "  required>
                                 <span id="error1"  class="error" ></span>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                             <i class="fa fa-user" ></i>
-                            <input type="text" id="lname" class="form-control input" placeholder="Last Name *" onkeyup="lnamevald()" title="Can only contain alpahets " required>
+                            <input type="text" name="lname" id="lname"  class="form-control input" placeholder="Last Name *" onkeyup="lnamevald()" title="Can only contain alpahets " required>
                             <span id="error2" class="error"></span>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                             <i class="fa fa-envelope" ></i>
-                            <input type="text" name="text1" id="email" class="form-control input" placeholder="Your Email *"onkeyup="emailvald()"  title="Can be of the form abc@xyz.(com)(.co)" value="" required>
+                            <input type="text" name="email" id="email" class="form-control input" placeholder="Your Email *"onkeyup="emailvald()"  title="Can be of the form abc@xyz.(com)(.co)" value="" aria-describedby="emailHelp" required>
                             <span id="error3" class="error"></span>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                             <i class="fa fa-phone" ></i>
-                            <input type="text" name="txtEmpPhone" id="phno" class="form-control input" placeholder="Your Phone *" onkeyup="phnovald()" title="Must be of pattern XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXX or XXXXXXXXXX" value="" required>
+                            <input type="text" name="phno" id="phno" class="form-control input" placeholder="Your Phone *" onkeyup="phnovald()" title="Must be of pattern XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXX or XXXXXXXXXX" value="" required>
                             <span id="error4" class="error"></span>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                             <i class="fa fa-user-circle-o" ></i>
-                            <input type="text" class="form-control input" placeholder="Username *" value="" required>
+                            <input type="text" name="username" class="form-control input" placeholder="Username *" value="" required>
                             <span id="error5" class="error"></span>
                         </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                           <i class="fa fa-key" ></i>
-                          <input type="password" id="pwd" onkeyup="pwdcheck(),passvald()" class="form-control input" placeholder="Password *" title="Must contain atleast 8 characters(atleast  1 uppercase, 1 lowercase, 1 number)"  required>
+                          <input type="password" name="paswd" id="pwd" onkeyup="pwdcheck(),passvald()" class="form-control input" placeholder="Password *" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required>
                           <span class="fa fa-eye eye" ></span><span class="fa fa-eye-slash eye" ></span>
                           <span id="error6"class="error"></span>
                           <br>
@@ -203,10 +165,15 @@
                         </div>
                       </div>
                       </div>
-                       
+                      
+                       <div class="mb-3 form-check" style="margin-left: 50px;">
+                         <input type="checkbox" class="custom-control-input" id="customCheck1">
+                         <label class="custom-control-label" for="customCheck1" style="margin-left: 10px;color:wheat;">I accept the Terms of Use and Privacy Policies.</label>
+                      </div>
+                      <br>
                       <input type="submit" class="btnsignup"  value="Register" >
                       <br><br>
-                      <p style="color:white;margin-left:200px">Already have an account?<a href="login" style="color:  rgb(22, 30, 53);">Click here to login!</a></p>
+                        <p class="mb-3" style="color:white;text-align: center;">Already have an account?<a href="/login" style="color:  rgb(215, 218, 228);">Click here to login!</a></p>
                       <br>  
           </div>
                   
@@ -266,7 +233,7 @@ let error2 = document.getElementById("error2") ;
 let names =/^([A-Za-z\. ]+)$/;
 
 function fnamevald(){
-    if((names.test(fname.value))!=1){
+    if((names.test(fname.value.trim()))!=1){
       error1.innerHTML="Please enter valid name";
       fname.style.border="1px solid red";
     }
@@ -277,7 +244,7 @@ function fnamevald(){
 }
 
 function lnamevald(){
-    if((names.test(lname.value))!=1){
+    if((names.test(lname.value.trim()))!=1){
       error2.innerHTML="Please enter valid name";
       lname.style.border="1px solid red";
     }
@@ -293,7 +260,7 @@ let error3 = document.getElementById("error3") ;
 let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3}?)$/
 
 function emailvald(){
-    if((regexp.test(email.value))!=1){
+    if((regexp.test(email.value.trim()))!=1){
         error3.innerHTML="Please enter valid email id";
         email.style.border="1px solid red";
                 }
@@ -309,7 +276,7 @@ let error4 = document.getElementById("error4") ;
 let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
 function phnovald(){
-    if((phoneno.test(phno.value))!=1){
+    if((phoneno.test(phno.value.trim()))!=1){
         error4.innerHTML="Please enter valid phone number";
         phno.style.border="1px solid red";
                 }

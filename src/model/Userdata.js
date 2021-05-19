@@ -3,14 +3,15 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://userone:userone@ictakfiles.zmywv.mongodb.net/LIBRARYAPP?retryWrites=true&w=majority');
 
 const Schema = mongoose.Schema;
-const AuthorSchema = new Schema({
-    name : String,
-    description : String,
-    genre : Array,
-    about : String,
-    image : String
+const UserSchema = new Schema({
+    fname : String,
+    lname : String,
+    email : String,
+    phno : String,
+    username : String,
+    paswd : String
 });
 
-var AuthorData = mongoose.model('authordata' , AuthorSchema);
+var UserData = mongoose.model('userdata' , UserSchema);
 
-module.exports = AuthorData;
+module.exports = UserData;

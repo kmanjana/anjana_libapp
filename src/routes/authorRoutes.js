@@ -2,7 +2,9 @@ const express = require("express");
 const authorsRouter = express.Router();
 const Authordata = require('../model/Authordata');
 
-function author_fn(nav){
+authorsRouter.use(express.static('./public'));
+
+function author_fn(nav){ 
     // var authors = [
     //     {
     //         name : "J. K. Rowling" , 
@@ -40,7 +42,7 @@ function author_fn(nav){
     //         summary:"John Ronald Reuel Tolkien CBE FRSL was an English writer, poet, philologist, and academic, best known as the author of the high fantasy works The Hobbit and The Lord of the Rings."
     //     },
     // ]
-    
+     
     authorsRouter.get('/' , function(req,res){
         Authordata.find()
         .then(function(authors){
@@ -63,6 +65,25 @@ function author_fn(nav){
                 author
             });
         })
+        
+    });
+
+    authorsRouter.get('/updateauthor/:id' , function(req,res){
+        const id = req.params.id; 
+        Authordata.findOne({_id:id})
+        .then(function(author){
+            res.render("updateauthor" , {
+                nav,
+                title : 'Update Author',
+                author
+            });
+        })
+        
+    });
+    authorsRouter.get('/deleteauthor/:id' , function(req,res){
+        const id = req.params.id; 
+        Authordata.findOne({_id:id}).deleteOne().exec();
+        res.redirect('/authors');
         
     });
     return authorsRouter;

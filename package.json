@@ -1,7 +1,6 @@
 {
   "name": "libraryapp",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
@@ -10,8 +9,27 @@
   "author": "anju",
   "license": "ISC",
   "dependencies": {
+    "alert": "^5.0.10",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "connect-mongodb-session": "^2.4.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jquery": "^3.6.0",
+    "jsdom": "^16.5.3",
+    "module": "^1.2.5",
     "mongoose": "^5.12.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmanjana/anjana_libapp.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/kmanjana/anjana_libapp/issues"
+  },
+  "homepage": "https://github.com/kmanjana/anjana_libapp#readme",
+  "description": ""
 }

@@ -9,7 +9,7 @@ function router(nav){
             title: 'Add New Author'
         })
     })
-    
+     
     
     adminAuthorRouter.post('/add',function(req,res){
         var item = {
@@ -21,6 +21,19 @@ function router(nav){
         }
         var author = AuthorData(item);
         author.save();//save into database
+        res.redirect('/authors');
+    });
+
+    adminAuthorRouter.post('/update/:id',async(req,res)=>{
+        const id = req.params.id; 
+        let author  = await AuthorData.findOne({_id:id});
+        author.name =  req.body.name;
+        author.description =  req.body.description;
+        author.genre = req.body.genre;
+        author.about =  req.body.about;
+        author.image = req.body.image;
+        author = await author.save();
+        console.log(id);
         res.redirect('/authors');
     });
 

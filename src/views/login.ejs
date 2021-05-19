@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-        <link rel="stylesheet" href="css/signup.css">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="/css/signup.css">
+        <link rel="stylesheet" href="/css/login.css">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>LOGIN</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/jpg" href="/images/icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,45 +16,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 	</head>
 <style>
   body{
-    background-image: url(images/signup7.jpg);
+    background-image: url(images/backg3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    }
-  body::after {
-    display: block;
-    position: relative;
-    backdrop-filter: brightness(20%);
-    content: "";
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-    }
-
+    }  
   .register{
   width: 40%;
-}
+  
+  }
   @media only screen and (max-width: 900px) {
     .register {
       width: 90%;
     }
-  }
-input{
-  text-indent: 20px;
-}
-.register-form{
-    margin-left: 70px;
-  }
-.input{
-    height: 45px;
-   
   }
   form i.fa {
     position:absolute ;
@@ -62,129 +39,115 @@ input{
     left: 20px;
     color: rgb(82, 80, 80);
     /* color: rgba(250, 249, 245, 0.596); */
-    font-size: 22px;
+    font-size: 18px;
     /* z-index: 9999; */
     }
-.btn-all{
+  .eye{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: rgb(82, 80, 80);
+    transform: translateY(-50%);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+  }
+  .form-control{
+      border: 1px solid #573b39;
+      background-color: rgba(255, 255, 255, 0.788); 
+      color: rgb(14, 12, 12);
+  }
+  .input{
+      height: 40px;
+  }
+  .error{
+      color: #d33737;
+      font-size: 13px;
+      font-weight: 600;
+  }
+  .alert{
+    background-color: rgba(216, 180, 180, 0.705);
+    color: brown;
+    text-align: center;
+  }
+  .btn-all{
     width: 65%;
     border: none;
-    margin-left: 130px;
+    margin-left: 110px;
     color: white;
     font-size: 20px;
     text-align: center;
-}
-.btn-signin{
-  background-color:#3a1613;
-}
-.btn-signin:hover{
-  background-color:#572420fa;
-}
-.btn-google {
-    background-color: #ea4335;
-    font-size: 18px;
-    text-align: left;
-    text-indent: 60px;
   }
-.btn-facebook {
-    background-color: #4269bd;
-    font-size: 18px;
-    text-align: left;
-    text-indent: 60px;
+  .btn-signin{
+    background-color:#773731;
   }
-.btn-twitter {
-    background-color: #24a6ce;
-    font-size: 18px;
-    text-align: left;
-    text-indent: 60px;
+  .btn-signin:hover{
+    background-color:#572420fa;
   }
-.eye{
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  color: rgb(82, 80, 80);
-  transform: translateY(-50%);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  display: none;
-  user-select: none;
-}
-.form-control{
-    border: 1px solid #573b39;
-    /* background-color: rgba(15, 14, 14, 0.637); */
-    background-color: rgba(255, 255, 255, 0.589); 
-    color: rgb(14, 12, 12);
-}
-.input{
-    height: 40px;
-   
+  .eye{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: rgb(82, 80, 80);
+    transform: translateY(-50%);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+    user-select: none;
   }
-
-
-        </style>
+/* css for alert */
+  .alert{
+    background-color: rgba(216, 180, 180, 0.705);
+    color: rgb(128, 38, 38);
+    text-align: center;
+  }
+  .alert-danger{
+    margin-top: 30px;
+  }
+  .row{
+    margin-left: 60px;
+  }
+  </style>
 	<body>
-    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/" class="navbar-brand">Home</a>
-        </div>
-        <nav class="collapse navbar-collapse" role="navigation">
-          <ul class="nav navbar-nav">
-            <%for(i=0;i<nav.length;i++){%>
-            <li>
-              <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-            </li>
-            <%}%>
-          </ul>
-          <ul class="nav navbar-right navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-              <ul class="dropdown-menu" style="padding:12px;">
-                <form class="form-inline">
-                  <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-                </form>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  
 
 <!-- form -->
-<form action="books" onsubmit="return validate()">
+<form action="/login" method="POST" onsubmit="return validate()">
     <div class="container register" >
+      <%if(successlog!=''){%>
+      <div class="alert alert-danger">
+        <strong><%=successlog%></strong>
+      </div>
+      <%}%>
             <div class=" register-right">
                       <h3 class="register-heading">Login</h3><br>
                       <div class="row register-form">
                               <div class="col-md-10">
                                   <div class="form-group">
                                       <i class="fa fa-user-circle-o fa-form" ></i>
-                                      <input type="text" class="form-control input" placeholder="Username *" value="" required>
+                                      <input type="email" name="logemail" class="form-control input" placeholder="Email *" value="" required>
                                   </div>
                               </div>
                               <div class="col-md-10">
                               <div class="form-group">
                                   <i class="fa fa-key fa-form" ></i>
-                                  <input type="password" id="pwd" onkeyup="shwbtn(),passwdval()" class="form-control input" placeholder="Password *" title="Must contain atleast 8 characters" required>
+                                  <input type="password" id="pwd" name="logpaswd" onkeyup="shwbtn(),passwdval()" class="form-control input" placeholder="Password *" title="Must contain atleast 8 characters" required>
                                   <span class="fa fa-eye eye" ></span><span class="fa fa-eye-slash eye" ></span>
                                   <span id="error6" style="color: red;font-size: 13px;"></span>
                                 </div>
                               </div><br><br><br><br><br><br>
-                              <div class="custom-control custom-checkbox ">&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                              <div class="custom-control custom-checkbox ">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" style="margin-left: 100px;">
                                 <label class="custom-control-label" for="customCheck1" style="margin-left: 10px;color:wheat;">Remember password</label>
                               </div>
                       </div>
                       <button class="btn btn-lg btn-primary btn-block text-uppercase btn-all btn-signin" type="submit">Sign In</button><br>
                           
                       <h5></h5>
-                     <p style="color:white;margin-left:200px">Don't have an account?<a href="signup" style="color: rgb(22, 30, 53);">Click here to register!</a></p>
+                     <p style="color:white;text-align: center;">Don't have an account?<a href="/" style="color: rgb(215, 218, 228);">Click here to register!</a></p>
                           <br>
                </div>
         </div>

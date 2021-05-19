@@ -1,11 +1,11 @@
 const express = require("express");
 const booksRouter = express.Router();
 const Bookdata = require('../model/Bookdata');
-
+ 
 booksRouter.use(express.static('./public'));
 
 function book_fn(nav){
-    // var books = [
+    // var books = [ 
     //     {
     //         title : "Life of Pi" , 
     //         author : "Yann Martel" , 
@@ -67,16 +67,16 @@ function book_fn(nav){
             });
         })
         
-    });
+    }); 
 
     booksRouter.get('/updatebook/:id' , function(req,res){
         const id = req.params.id; 
         Bookdata.findOne({_id:id})
-        .then(function(books){
+        .then(function(book){
             res.render("updatebook" , {
                 nav,
-                title : 'updatebook',
-                books
+                title : 'Update Book',
+                book
             });
         })
         
@@ -84,7 +84,6 @@ function book_fn(nav){
     booksRouter.get('/deletebook/:id' , function(req,res){
         const id = req.params.id; 
         Bookdata.findOne({_id:id}).deleteOne().exec();
-        console.log(id);
         res.redirect('/books');
         
     });
